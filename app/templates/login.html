@@ -28,7 +28,7 @@
             <button type="submit">Logg inn</button>
         </form>
 
-        <button type="button" onclick="toggleGuide()" style="margin-top: 15px; width: 100%;">Glemt passord?</button>
+        <a href="{{ url_for('guide') }}" class="btn" style="display: inline-block; margin-top: 15px;">Glemt passord?</a>
 
         <div id="password-guide" class="password-guide" style="display: none; margin-top: 20px;">
             <h3>📖 Brukerveiledning</h3>
@@ -43,6 +43,7 @@
 
         <div style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
             <p>Bruker: user1 / password123</p>
+            <p>Bruker: user2 / password456</p>
             <p>Admin: admin / admin123</p>
         </div>
     </div>

@@ -26,6 +26,7 @@ def init_db():
             'INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
             [
                 ('user1', 'password123', 'user'),
+                ('user2', 'password456', 'user'),
                 ('admin', 'admin123', 'admin')
             ]
         )
@@ -71,6 +72,11 @@ def login():
             return redirect(url_for('admin' if user['role'] == 'admin' else 'menu'))
         error = 'Feil brukernavn eller passord'
     return render_template('login.html', error=error)
+
+
+@app.route('/guide')
+def guide():
+    return render_template('guide.html')
 
 
 @app.route('/logout')
