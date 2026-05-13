@@ -9,56 +9,44 @@
 <body>
     <div class="login-container">
         <h1>🍕 Pizza Restaurant</h1>
-        
+
         {% if error %}
             <div class="error">{{ error }}</div>
         {% endif %}
-        
+
         <form method="POST">
             <div class="form-group">
                 <label for="username">Brukernavn</label>
                 <input type="text" id="username" name="username" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="password">Passord</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            
+
             <button type="submit">Logg inn</button>
         </form>
-        
-        <div style="text-align: center; margin-top: 20px;">
-            <button type="button" onclick="toggleGuide()" style="background: #6c757d; width: 100%;">
-                ❓ Glemt passord?
-            </button>
-        </div>
-        
+
+        <button type="button" onclick="toggleGuide()" style="margin-top: 15px; width: 100%;">Glemt passord?</button>
+
         <div id="password-guide" class="password-guide" style="display: none; margin-top: 20px;">
-            <h3>📖 Brukerveiledning for glemt passord</h3>
-            <p style="margin-bottom: 12px;"><strong>Hvis du ikke husker passordet ditt, følg disse stegene:</strong></p>
+            <h3>📖 Brukerveiledning</h3>
+            <p>Hvis du ikke husker passordet, følg disse stegene:</p>
             <ol>
-                <li><strong>Kontakt restauranten:</strong> Ring eller send en e-post til pizzarestauranten vår på telefon 123-45-67 eller e-post: kontakt@pizzarestaurant.no</li>
-                
-                <li><strong>Identifiser deg:</strong> Oppgi ditt brukernavn og andre detaljer som verifiserer identiteten din (f.eks. e-postadresse eller telefonnummer brukt ved registrering)</li>
-                
-                <li><strong>Få et midlertidig passord:</strong> En administrator vil verifisere identiteten din og sende deg et midlertidig passord via e-post</li>
-                
-                <li><strong>Logg inn med midlertidig passord:</strong> Bruk det midlertidige passordet til å logge inn på systemet</li>
-                
-                <li><strong>Endre til nytt passord:</strong> Etter innlogging kan du endre passordet ditt til et nytt passord du velger selv</li>
-                
-                <li><strong>Lagre passordet ditt:</strong> Vær sikker på å lagre det nye passordet på et sikkert sted slik at du ikke glemmer det igjen</li>
+                <li>Kontakt restauranten via telefon eller e-post.</li>
+                <li>Oppgi brukernavn og verifiser identiteten din.</li>
+                <li>En administrator sender deg midlertidig passord.</li>
+                <li>Logg inn med nytt passord.</li>
             </ol>
         </div>
-        
+
         <div style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
-            <p><strong>Testbrukere:</strong></p>
-            <p>Kunde: brukernavn "user1", passord "password123"</p>
-            <p>Admin: brukernavn "admin", passord "admin123"</p>
+            <p>Bruker: user1 / password123</p>
+            <p>Admin: admin / admin123</p>
         </div>
     </div>
-    
+
     <script>
         function toggleGuide() {
             const guide = document.getElementById('password-guide');
