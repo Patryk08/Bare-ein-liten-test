@@ -17,8 +17,7 @@
         </div>
         
         <div class="admin-controls">
-            <p style="color: #666; margin-bottom: 20px;">Administrer menyen din her</p>
-            <a href="{{ url_for('add_item') }}" class="btn" style="background: #28a745;">➕ Legg til ny matrett</a>
+            <p style="color: #666; margin-bottom: 20px;">Admin-panel. Se menyen, men redigering er fjernet i denne enkle versjonen.</p>
             <a href="{{ url_for('menu') }}" class="btn btn-secondary">👁 Se kundeperspektiv</a>
         </div>
         
@@ -30,10 +29,6 @@
                     <h3>{{ item.name }}</h3>
                     <p>{{ item.description }}</p>
                     <div class="price">{{ "%.2f"|format(item.price) }} kr</div>
-                    <div class="menu-item actions">
-                        <a href="{{ url_for('edit_item', item_id=item.id) }}" class="btn" style="background: #ffc107; color: #333;">✏ Rediger</a>
-                        <a href="{{ url_for('delete_item', item_id=item.id) }}" class="btn btn-danger" onclick="return confirm('Er du sikker?');">🗑 Slett</a>
-                    </div>
                 </div>
             {% endfor %}
         </div>
