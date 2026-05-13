@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meny - Pizza Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍕 Meny</h1>
+            <div>
+                <span style="color: #666; margin-right: 20px;">Hallo, {{ session.username }}!</span>
+                <a href="{{ url_for('logout') }}" class="logout-link">Logg ut</a>
+            </div>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px; text-align: center;">Velg dine favoritt pizzaer</p>
+        
+        <div class="menu-container">
+            {% for item in items %}
+                <div class="menu-item">
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                    <div class="price">{{ "%.2f"|format(item.price) }} kr</div>
+                    <button style="width: 100%;">Legg til i handlekurv</button>
+                </div>
+            {% endfor %}
+        </div>
+        
+        {% if not items %}
+            <p style="text-align: center; color: #999; margin-top: 40px;">Ingen pizzaer på menyen ennå.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

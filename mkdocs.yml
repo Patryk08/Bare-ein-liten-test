@@ -1,0 +1,29 @@
+site_name: Pizza Restaurant - Teknisk Dokumentasjon
+site_description: Dokumentasjon for Pizza Restaurant webapplikasjon
+theme:
+  name: material
+  language: no
+  palette:
+    scheme: default
+    primary: purple
+    accent: deep-purple
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Hjem: index.md
+  - Oppsett: oppsett.md
+  - Autentisering: autentisering.md
+  - Database: database.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - toc
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.details

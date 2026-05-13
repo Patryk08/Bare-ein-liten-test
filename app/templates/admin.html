@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Pizza Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Admin Panel</h1>
+            <div>
+                <span style="color: #666; margin-right: 20px;">Admin: {{ session.username }}</span>
+                <a href="{{ url_for('logout') }}" class="logout-link">Logg ut</a>
+            </div>
+        </div>
+        
+        <div class="admin-controls">
+            <p style="color: #666; margin-bottom: 20px;">Administrer menyen din her</p>
+            <a href="{{ url_for('add_item') }}" class="btn" style="background: #28a745;">➕ Legg til ny matrett</a>
+            <a href="{{ url_for('menu') }}" class="btn btn-secondary">👁 Se kundeperspektiv</a>
+        </div>
+        
+        <h2 style="margin-top: 40px; margin-bottom: 30px;">Eksisterende matrettter</h2>
+        
+        <div class="menu-container">
+            {% for item in items %}
+                <div class="menu-item">
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                    <div class="price">{{ "%.2f"|format(item.price) }} kr</div>
+                    <div class="menu-item actions">
+                        <a href="{{ url_for('edit_item', item_id=item.id) }}" class="btn" style="background: #ffc107; color: #333;">✏ Rediger</a>
+                        <a href="{{ url_for('delete_item', item_id=item.id) }}" class="btn btn-danger" onclick="return confirm('Er du sikker?');">🗑 Slett</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        {% if not items %}
+            <p style="text-align: center; color: #999; margin-top: 40px;">Ingen matrettter på menyen ennå.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
